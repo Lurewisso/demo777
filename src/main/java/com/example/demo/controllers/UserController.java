@@ -24,7 +24,7 @@ public class UserController {
     private final UserService userService;
 
 
-    @Operation(summary = "get all Users", tags = {"User"}, description = "get all Users ",responses = {
+    @Operation(summary = "get all Users", description = "get all Users ",responses = {
             @ApiResponse(responseCode = "200", description = "Users found awesome dude ! ")})
     @GetMapping()
     public ResponseEntity<List<UserDTO>> getUsers(){
@@ -32,7 +32,7 @@ public class UserController {
                 .body(userService.getAll());
     }
 
-    @Operation(summary = "Find User by id", tags = {"User"}, description = "find User by id ",responses = {
+    @Operation(summary = "Find User by id",  description = "find User by id ",responses = {
             @ApiResponse(responseCode = "200", description = "User find awesome dude ! "),
             @ApiResponse(responseCode = "404", description = "User not found awesome dude ! ")})
     @GetMapping("/{userid}")
@@ -41,7 +41,7 @@ public class UserController {
 
     }
 
-    @Operation(summary = "Create a User", tags = {"User"}, description = "creation User ",responses = {
+    @Operation(summary = "Create a User",  description = "creation User ",responses = {
             @ApiResponse(responseCode = "200", description = "User create awesome dude ! ")})
     @PostMapping
     public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO){
@@ -49,7 +49,7 @@ public class UserController {
     }
 
 
-    @Operation(summary = " User  update", tags = {"User"}, description = "updating User ",responses = {
+    @Operation(summary = " User  update",  description = "updating User ",responses = {
             @ApiResponse(responseCode = "200", description = "User update awesome dude ! "),
             @ApiResponse(responseCode = "404", description = "User not found dude ! ")})
     @PutMapping("/{id}")
@@ -57,7 +57,7 @@ public class UserController {
         return ResponseEntity.ok().body(userService.update(id,userDTO));
     }
 
-    @Operation(summary = " delete  update", tags = {"User"}, description = "User delete ",responses = {
+    @Operation(summary = " delete  update",  description = "User delete ",responses = {
             @ApiResponse(responseCode = "200", description = "User delete awesome dude ! "),
             @ApiResponse(responseCode = "404", description = "User not found  dude ! ")})
     @DeleteMapping("/{id}")

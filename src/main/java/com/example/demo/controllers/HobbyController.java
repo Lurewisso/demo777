@@ -24,7 +24,7 @@ public class HobbyController {
 
     private final HobbyService hobbyService;
 
-    @Operation(summary = "get all hobby", tags = {"Hobby"}, description = "get all hobby ",responses = {
+    @Operation(summary = "get all hobby",  description = "get all hobby ",responses = {
             @ApiResponse(responseCode = "200", description = "Hobby found awesome dude ! ")})
     @GetMapping()
     public ResponseEntity<List<HobbiesDTO>> getHobbies(){
@@ -32,7 +32,7 @@ public class HobbyController {
                 .body(hobbyService.getAll());
     }
 
-    @Operation(summary = "Find hobby by id", tags = {"Hobby"}, description = "find hobby by id ",responses = {
+    @Operation(summary = "Find hobby by id",  description = "find hobby by id ",responses = {
             @ApiResponse(responseCode = "200", description = "Hobby find awesome dude ! "),
             @ApiResponse(responseCode = "404", description = "Hobby not found awesome dude ! ")})
     @GetMapping("/{userid}")
@@ -41,7 +41,7 @@ public class HobbyController {
 
     }
 
-    @Operation(summary = "Create a hobby", tags = {"Hobby"}, description = "creation hobby ",responses = {
+    @Operation(summary = "Create a hobby",  description = "creation hobby ",responses = {
             @ApiResponse(responseCode = "200", description = "Hobby create awesome dude ! ")})
     @PostMapping
     public ResponseEntity<HobbiesDTO> createHobby(@RequestBody HobbiesDTO hobbiesDTO){
@@ -49,7 +49,7 @@ public class HobbyController {
     }
 
 
-    @Operation(summary = " hobby  update", tags = {"Hobby"}, description = "updating hobby ",responses = {
+    @Operation(summary = " hobby  update",  description = "updating hobby ",responses = {
             @ApiResponse(responseCode = "200", description = "Hobby update awesome dude ! "),
             @ApiResponse(responseCode = "404", description = "Hobby not found dude ! ")})
     @PutMapping("/{id}")
@@ -57,7 +57,7 @@ public class HobbyController {
         return ResponseEntity.ok().body(hobbyService.update(id,hobbiesDTO));
     }
 
-    @Operation(summary = " delete  update", tags = {"Hobby"}, description = "delete hobby ",responses = {
+    @Operation(summary = " delete  update",  description = "delete hobby ",responses = {
             @ApiResponse(responseCode = "200", description = "hobby delete awesome dude ! "),
             @ApiResponse(responseCode = "404", description = "hobby not found  dude ! ")})
     @DeleteMapping("/{id}")

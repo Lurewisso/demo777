@@ -24,7 +24,7 @@ public class AccountController {
     private final AccountServices accountServices;
 
 
-    @Operation(summary = "get all Account", tags = {"Account"}, description = "get all Accounts ",responses = {
+    @Operation(summary = "get all Account",  description = "get all Accounts ",responses = {
             @ApiResponse(responseCode = "200", description = "Accounts found awesome dude ! ")})
     @GetMapping()
     public ResponseEntity<List<AccountsDTO>> getAccounts(){
@@ -32,7 +32,7 @@ public class AccountController {
                 .body(accountServices.getAll());
     }
 
-    @Operation(summary = "Find Account by id", tags = {"Account"}, description = "find Account by id ",responses = {
+    @Operation(summary = "Find Account by id",  description = "find Account by id ",responses = {
             @ApiResponse(responseCode = "200", description = "Account find awesome dude ! "),
             @ApiResponse(responseCode = "404", description = "Account not found awesome dude ! ")})
     @GetMapping("/{userid}")
@@ -41,7 +41,7 @@ public class AccountController {
 
     }
 
-    @Operation(summary = "Create an Account", tags = {"Account"}, description = "creation Account ",responses = {
+    @Operation(summary = "Create an Account",  description = "creation Account ",responses = {
             @ApiResponse(responseCode = "200", description = "Account create awesome dude ! ")})
     @PostMapping
     public ResponseEntity<AccountsDTO> createAccount(@RequestBody AccountsDTO accountsDTO){
@@ -49,7 +49,7 @@ public class AccountController {
     }
 
 
-    @Operation(summary = " Account  update", tags = {"Account"}, description = "updating Account ",responses = {
+    @Operation(summary = " Account  update",  description = "updating Account ",responses = {
             @ApiResponse(responseCode = "200", description = "Account update awesome dude ! "),
             @ApiResponse(responseCode = "404", description = "Account not found dude ! ")})
     @PutMapping("/{id}")
@@ -57,7 +57,7 @@ public class AccountController {
         return ResponseEntity.ok().body(accountServices.update(id,accountsDTO));
     }
 
-    @Operation(summary = " delete  update", tags = {"Account"}, description = "Account hobby ",responses = {
+    @Operation(summary = " delete  update",  description = "Account hobby ",responses = {
             @ApiResponse(responseCode = "200", description = "Account delete awesome dude ! "),
             @ApiResponse(responseCode = "404", description = "Account not found  dude ! ")})
     @DeleteMapping("/{id}")

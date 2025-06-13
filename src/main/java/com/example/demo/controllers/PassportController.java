@@ -27,7 +27,7 @@ public class PassportController {
 
     private final PassportService passportService;
 
-@Operation(summary = "get all passports", tags = {"Passport"}, description = "get all passport ",responses = {
+@Operation(summary = "get all passports",  description = "get all passport ",responses = {
 @ApiResponse(responseCode = "200", description = "Passports found awesome dude ! ")})
     @GetMapping()
     public ResponseEntity<List<PassportDTO>> getPassports(){
@@ -35,7 +35,7 @@ public class PassportController {
                 .body(passportService.getAll());
     }
 
-    @Operation(summary = "Find passport by id", tags = {"Passport"}, description = "find passport by id ",responses = {
+    @Operation(summary = "Find passport by id",  description = "find passport by id ",responses = {
             @ApiResponse(responseCode = "200", description = "Passport find awesome dude ! "),
             @ApiResponse(responseCode = "404", description = "Passport not found awesome dude ! ")})
     @GetMapping("/{userid}")
@@ -44,7 +44,7 @@ public class PassportController {
 
     }
 
-    @Operation(summary = "Create a passport", tags = {"Passport"}, description = "creation passport ",responses = {
+    @Operation(summary = "Create a passport",  description = "creation passport ",responses = {
             @ApiResponse(responseCode = "200", description = "Passport create awesome dude ! ")})
     @PostMapping
     public ResponseEntity<PassportDTO> createPassport(@RequestBody PassportDTO passportDTO){
@@ -52,7 +52,7 @@ public class PassportController {
     }
 
 
-    @Operation(summary = " passport  update", tags = {"Passport"}, description = "updating passport ",responses = {
+    @Operation(summary = " passport  update",  description = "updating passport ",responses = {
             @ApiResponse(responseCode = "200", description = "Passport update awesome dude ! "),
             @ApiResponse(responseCode = "404", description = "Passport not found dude ! ")})
     @PutMapping("/{id}")
@@ -60,7 +60,7 @@ public class PassportController {
         return ResponseEntity.ok().body(passportService.update(id,passportDTO));
     }
 
-    @Operation(summary = " delete  update", tags = {"Passport"}, description = "delete passport ",responses = {
+    @Operation(summary = " delete  update",  description = "delete passport ",responses = {
             @ApiResponse(responseCode = "200", description = "Passport delete awesome dude ! "),
             @ApiResponse(responseCode = "404", description = "Passport not found  dude ! ")})
     @DeleteMapping("/{id}")
