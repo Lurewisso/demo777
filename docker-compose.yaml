@@ -57,8 +57,17 @@ services:
       - "5050:80"
     volumes:
       - pgadmin-data:/var/lib/pgadmin
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    ports:
+      - "8081:80"
+    environment:
+      - SWAGGER_JSON_URL=http://localhost:8080/v3/api-docs`
 volumes:
   db-data:
   pgadmin-data:
+
+
+
 
 
