@@ -20,7 +20,7 @@ public class Accounts {
     String title;
 
     @ManyToOne
-    @JoinColumn(name = "c_users_id")
+    @JoinColumn(name = "c_user_id")
     User user;
 
 
