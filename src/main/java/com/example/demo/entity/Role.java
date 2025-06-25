@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Builder
-@Table(schema = "users_schema", name = "t_credential")
+@Table(schema = "users_schema", name = "t_roles")
 
 public class Role {
     @Id
