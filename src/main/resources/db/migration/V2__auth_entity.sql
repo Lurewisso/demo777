@@ -1,10 +1,6 @@
 CREATE TABLE IF NOT EXISTS users_schema.t_roles(
-
     id SERIAL PRIMARY KEY;
-    name VARCHAR(50) UNIQUE NOT NULL
-
-
-
+    c_name VARCHAR(50) UNIQUE NOT NULL
 );
 
 
@@ -16,7 +12,4 @@ CREATE TABLE IF NOT EXISTS users_schema.t_credentials(
     role_id INTEGER NOT NULL,
     FOREIGN KEY (c_user_id) REFERENCES users_schema.t_users(id),
     FOREIGN KEY (c_role_id) REFERENCES users_schema.t_users(id)
-
-
-
-)
+);
