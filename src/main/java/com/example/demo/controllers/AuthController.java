@@ -31,11 +31,14 @@ public class AuthController {
 
     }
 
-    @Operation(summary = "Login", description = "Login", responses = {
-            @ApiResponse(responseCode = "200",description = "Register successfully")
+    @Operation(summary = "Login",  description = "Login for what?", responses = {
+            @ApiResponse(responseCode = "200", description = "Login successfully")
     })
-    @GetMapping
-    public ResponseEntity<?> login(@RequestBody Authentication authentication){
-        return ResponseEntity.ok("Login was successful" + authentication.getName());
+    @GetMapping("/me")
+    public ResponseEntity<?> whoAmI(Authentication authentication) {
+        if (authentication == null || !authentication.isAuthenticated()) {
+            return ResponseEntity.status(401).body("Not authenticated");
+        }
+        return ResponseEntity.ok("Current user: " + authentication.getName());
     }
 }
