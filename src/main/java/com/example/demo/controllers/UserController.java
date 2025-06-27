@@ -57,6 +57,19 @@ public class UserController {
         return ResponseEntity.ok().body(userService.update(id,userDTO));
     }
 
+
+    /// сюда порпобуем засунуть новый контроллер
+    @Operation(summary = " User  update",  description = "updating User ",responses = {
+            @ApiResponse(responseCode = "200", description = "User update awesome dude ! "),
+            @ApiResponse(responseCode = "404", description = "User not found dude ! ")})
+    @PutMapping("/{id}/getAdmin")
+    public ResponseEntity<UserDTO> updateUserToAdmin(@PathVariable Long id,@RequestBody UserDTO userDTO){
+        return ResponseEntity.ok().body(userService.update(id,userDTO));
+    }
+
+
+
+
     @Operation(summary = " delete  update",  description = "User delete ",responses = {
             @ApiResponse(responseCode = "200", description = "User delete awesome dude ! "),
             @ApiResponse(responseCode = "404", description = "User not found  dude ! ")})
